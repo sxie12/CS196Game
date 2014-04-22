@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center|top"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout2"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/linearLayout2"
+        android:layout_marginTop="56dp" >
+
+        <Button
+            android:id="@+id/btn_start_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
+            android:onClick="startGame"
+            android:background="@drawable/button_design"
+            android:text="@string/button_start" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_credits"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:onClick="credits"
+            android:text="@string/button_credits"
+            android:textColor="@color/red"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/btn_settings"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:onClick="settings"
+            android:text="@string/button_settings"
+            android:textColor="@color/red"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/btn_high_scores"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:onClick="highScores"
+            android:text="@string/button_high_scores"
+            android:textColor="@color/red"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+
+</RelativeLayout>
