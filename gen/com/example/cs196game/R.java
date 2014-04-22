@@ -31,6 +31,7 @@ public final class R {
          */
         public static final int activity_horizontal_margin=0x7f060000;
         public static final int activity_vertical_margin=0x7f060001;
+        public static final int intro_font_size=0x7f060003;
         public static final int title_font_size=0x7f060002;
     }
     public static final class drawable {
@@ -83,6 +84,7 @@ public final class R {
         public static final int button_settings=0x7f070003;
         public static final int button_start=0x7f070002;
         public static final int credits_page=0x7f070009;
+        public static final int game_name=0x7f070019;
         public static final int high_score_five_name=0x7f07000e;
         public static final int high_score_five_score=0x7f070018;
         public static final int high_score_four_name=0x7f07000d;
@@ -98,19 +100,19 @@ public final class R {
         public static final int number_list_one=0x7f07000f;
         public static final int number_list_three=0x7f070011;
         public static final int number_list_two=0x7f070010;
-        public static final int pref_default_display_name=0x7f07001e;
-        public static final int pref_description_social_recommendations=0x7f07001c;
+        public static final int pref_default_display_name=0x7f07001f;
+        public static final int pref_description_music=0x7f07001d;
         /**  Strings related to Settings 
  Example General settings 
          */
-        public static final int pref_header_general=0x7f07001a;
-        public static final int pref_title_add_friends_to_messages=0x7f07001f;
-        public static final int pref_title_display_name=0x7f07001d;
-        public static final int pref_title_social_recommendations=0x7f07001b;
+        public static final int pref_header_general=0x7f07001b;
+        public static final int pref_title_difficulty=0x7f070020;
+        public static final int pref_title_display_name=0x7f07001e;
+        public static final int pref_title_music=0x7f07001c;
         public static final int title_activity_credits=0x7f070008;
         public static final int title_activity_game=0x7f070006;
         public static final int title_activity_high_score_list=0x7f070007;
-        public static final int title_activity_settings=0x7f070019;
+        public static final int title_activity_settings=0x7f07001a;
     }
     public static final class style {
         /** 

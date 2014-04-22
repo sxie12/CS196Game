@@ -1,0 +1,22 @@
+04-21 21:25:29.779: E/AndroidRuntime(9187): FATAL EXCEPTION: main
+04-21 21:25:29.779: E/AndroidRuntime(9187): Process: com.example.cs196game, PID: 9187
+04-21 21:25:29.779: E/AndroidRuntime(9187): java.lang.RuntimeException: Unable to instantiate activity ComponentInfo{com.example.cs196game/com.example.cs196.MainActivity}: java.lang.ClassNotFoundException: Didn't find class "com.example.cs196.MainActivity" on path: DexPathList[[zip file "/data/app/com.example.cs196game-1.apk"],nativeLibraryDirectories=[/data/app-lib/com.example.cs196game-1, /vendor/lib, /system/lib]]
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2135)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2269)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at android.app.ActivityThread.access$800(ActivityThread.java:139)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1210)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at android.os.Handler.dispatchMessage(Handler.java:102)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at android.os.Looper.loop(Looper.java:136)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at android.app.ActivityThread.main(ActivityThread.java:5102)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at java.lang.reflect.Method.invokeNative(Native Method)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at java.lang.reflect.Method.invoke(Method.java:515)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at dalvik.system.NativeStart.main(Native Method)
+04-21 21:25:29.779: E/AndroidRuntime(9187): Caused by: java.lang.ClassNotFoundException: Didn't find class "com.example.cs196.MainActivity" on path: DexPathList[[zip file "/data/app/com.example.cs196game-1.apk"],nativeLibraryDirectories=[/data/app-lib/com.example.cs196game-1, /vendor/lib, /system/lib]]
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:56)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at java.lang.ClassLoader.loadClass(ClassLoader.java:497)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at java.lang.ClassLoader.loadClass(ClassLoader.java:457)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at android.app.Instrumentation.newActivity(Instrumentation.java:1084)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2126)
+04-21 21:25:29.779: E/AndroidRuntime(9187): 	... 11 more

@@ -26,6 +26,7 @@
     <string name="high_score_three_score">High Score Three Score</string>
     <string name="high_score_four_score">High Score Four Score</string>
     <string name="high_score_five_score">High Score Five Score</string>
+    <string name="game_name">Game Name</string>
 
 </resources>
 
