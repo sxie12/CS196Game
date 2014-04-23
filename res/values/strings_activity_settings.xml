@@ -12,8 +12,10 @@
     <string name="pref_title_display_name">Display name</string>
     <string name="pref_default_display_name">John Smith</string>
     <string name="pref_title_difficulty">Difficulty</string>
+    <string name="reset_high_score">Resets the highscore list</string>
+    <string name="reset_high_scores">Reset highscores</string>
 
-    <string-array name="pref_example_list_titles">
+    <string-array name="pref_example_list_difficulty">
         <item>Easy</item>
         <item>Medium</item>
         <item>Hard</item>

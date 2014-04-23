@@ -39,11 +39,11 @@ public class HighScoreList extends Activity {
 	}
 
 	private void fillArrays() {
-		highScoreList[1] = pref.getString("highScores_1", ""); // Returns highScores or the empty string
-		highScoreList[2] = pref.getString("highScores_2", "");
-		highScoreList[3] = pref.getString("highScores_3", "");
-		highScoreList[4] = pref.getString("highScores_4", "");
-		highScoreList[5] = pref.getString("highScores_5", "");
+		highScoreList[1] = pref.getString("highScores_1", "0"); // Returns highScores or the empty string
+		highScoreList[2] = pref.getString("highScores_2", "0");
+		highScoreList[3] = pref.getString("highScores_3", "0");
+		highScoreList[4] = pref.getString("highScores_4", "0");
+		highScoreList[5] = pref.getString("highScores_5", "0");
 		highScoreNameList[1] = pref.getString("highNames_1", "None");
 		highScoreNameList[2] = pref.getString("highNames_2", "None");
 		highScoreNameList[3] = pref.getString("highNames_3", "None");
@@ -52,14 +52,14 @@ public class HighScoreList extends Activity {
 	}
 
 	private boolean isHighScore(int score) {
-		if (highScoreList[4].equals(""))
+		if (highScoreList[4].equals("0"))
 			return true;
 		return score > Integer.parseInt(highScoreList[4]);
 	}
 
 	private int getHighScoreIndex(int score) {
 		for (int i = 0; i < 5; i++) {
-			if (highScoreList[i].equals(""))
+			if (highScoreList[i].equals("0"))
 				return i;
 			if (score > Integer.parseInt(highScoreList[i]))
 				return i;

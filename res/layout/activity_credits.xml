@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textSize="@dimen/title_font_size"
-        android:text="@string/title_activity_credits"
+        android:text="@string/button_credits"
         android:textColor="@color/red" />
 
     <TextView

@@ -9,7 +9,7 @@ package com.example.cs196game;
 
 public final class R {
     public static final class array {
-        public static final int pref_example_list_titles=0x7f080000;
+        public static final int pref_example_list_difficulty=0x7f080000;
         public static final int pref_example_list_values=0x7f080001;
     }
     public static final class attr {
@@ -24,6 +24,11 @@ public final class R {
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
+
+         Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
+    
 
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
@@ -77,42 +82,50 @@ public final class R {
         public static final int main=0x7f0a0003;
     }
     public static final class string {
-        public static final int action_settings=0x7f070001;
+        public static final int action_settings=0x7f07001a;
         public static final int app_name=0x7f070000;
-        public static final int button_credits=0x7f070005;
-        public static final int button_high_scores=0x7f070004;
-        public static final int button_settings=0x7f070003;
-        public static final int button_start=0x7f070002;
-        public static final int credits_page=0x7f070009;
-        public static final int game_name=0x7f070019;
-        public static final int high_score_five_name=0x7f07000e;
-        public static final int high_score_five_score=0x7f070018;
-        public static final int high_score_four_name=0x7f07000d;
-        public static final int high_score_four_score=0x7f070017;
-        public static final int high_score_one_name=0x7f07000a;
-        public static final int high_score_one_score=0x7f070014;
-        public static final int high_score_three_name=0x7f07000c;
-        public static final int high_score_three_score=0x7f070016;
-        public static final int high_score_two_name=0x7f07000b;
-        public static final int high_score_two_score=0x7f070015;
-        public static final int number_list_five=0x7f070013;
-        public static final int number_list_four=0x7f070012;
-        public static final int number_list_one=0x7f07000f;
-        public static final int number_list_three=0x7f070011;
-        public static final int number_list_two=0x7f070010;
-        public static final int pref_default_display_name=0x7f07001f;
-        public static final int pref_description_music=0x7f07001d;
+        public static final int button_credits=0x7f070004;
+        public static final int button_high_scores=0x7f070003;
+        public static final int button_settings=0x7f070002;
+        public static final int button_start=0x7f070001;
+        public static final int credits_page=0x7f070007;
+        public static final int game_name=0x7f070017;
+        public static final int hello_world=0x7f070019;
+        public static final int high_score_five_name=0x7f07000c;
+        public static final int high_score_five_score=0x7f070016;
+        public static final int high_score_four_name=0x7f07000b;
+        public static final int high_score_four_score=0x7f070015;
+        public static final int high_score_one_name=0x7f070008;
+        public static final int high_score_one_score=0x7f070012;
+        public static final int high_score_three_name=0x7f07000a;
+        public static final int high_score_three_score=0x7f070014;
+        public static final int high_score_two_name=0x7f070009;
+        public static final int high_score_two_score=0x7f070013;
+        public static final int number_list_five=0x7f070011;
+        public static final int number_list_four=0x7f070010;
+        public static final int number_list_one=0x7f07000d;
+        public static final int number_list_three=0x7f07000f;
+        public static final int number_list_two=0x7f07000e;
+        public static final int pref_default_display_name=0x7f070025;
+        public static final int pref_description_music=0x7f070023;
         /**  Strings related to Settings 
  Example General settings 
          */
-        public static final int pref_header_general=0x7f07001b;
-        public static final int pref_title_difficulty=0x7f070020;
-        public static final int pref_title_display_name=0x7f07001e;
-        public static final int pref_title_music=0x7f07001c;
-        public static final int title_activity_credits=0x7f070008;
-        public static final int title_activity_game=0x7f070006;
-        public static final int title_activity_high_score_list=0x7f070007;
-        public static final int title_activity_settings=0x7f07001a;
+        public static final int pref_header_general=0x7f070021;
+        public static final int pref_title_difficulty=0x7f070026;
+        public static final int pref_title_display_name=0x7f070024;
+        public static final int pref_title_music=0x7f070022;
+        public static final int reset_high_score=0x7f070027;
+        public static final int reset_high_scores=0x7f070028;
+        public static final int title_activity_activity_dialog_fragment=0x7f07001c;
+        public static final int title_activity_checking=0x7f07001f;
+        public static final int title_activity_dialog_fragment_one=0x7f07001d;
+        public static final int title_activity_game=0x7f070005;
+        public static final int title_activity_game_dialog_fragment=0x7f07001b;
+        public static final int title_activity_high_score_list=0x7f070006;
+        public static final int title_activity_popup=0x7f07001e;
+        public static final int title_activity_settings=0x7f070020;
+        public static final int title_activity_start_game_dialog_fragment=0x7f070018;
     }
     public static final class style {
         /** 

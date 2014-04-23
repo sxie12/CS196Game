@@ -1,6 +1,7 @@
 package com.example.cs196game;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,7 +26,7 @@ public class MainActivity extends Activity {
 	// Enable USB Debugging in Developer Options to run app on Android device
 
 	public void startGame(View v) {
-		// Write the startGame button here
+		// Write the startGame button here				
 		startActivity(new Intent(this, GameActivity.class));
 	}
 
