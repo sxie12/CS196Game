@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameChoice" >
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:textColor="@color/red"
+        android:textSize="@dimen/title_font_size"
+        android:text="@string/select_one" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_below="@+id/textView1"
+        android:background="@drawable/button_design"
+        android:onClick="resumeGame"
+        android:text="@string/button_resume" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:text="@string/resume_game_description"
+        android:textSize="@dimen/small_font_size" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
+        android:background="@drawable/blue_button_design"
+        android:onClick="startGame"
+        android:text="@string/button_new" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:text="@string/new_game_description"
+        android:textSize="@dimen/small_font_size" />
+
+</RelativeLayout>
+

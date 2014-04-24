@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="14"
         android:targetSdkVersion="17" />
 
     <application
@@ -45,6 +45,12 @@
         <activity
             android:name="com.example.cs196game.Settings"
             android:label="@string/title_activity_settings"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.cs196game.GameChoice"
+            android:label="@string/title_activity_game_choice"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/NoActionBar" >
         </activity>
