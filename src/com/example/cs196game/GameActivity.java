@@ -9,6 +9,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -27,22 +28,60 @@ public class GameActivity extends Activity {
 	String name;
 	SharedPreferences pref;
 	Editor editor;
-	
+	TextView thisScore;
+	TextView thisDiff;
+	long start, end;
+	Handler handler;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game);
-		pref = getApplicationContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+		pref = getApplicationContext().getSharedPreferences("MyPrefs",
+				MODE_PRIVATE);
 		editor = pref.edit();
-		TextView thisScore = (TextView) findViewById(R.id.textView4);
-		TextView thisDiff = (TextView) findViewById(R.id.textView3);
-		jump = 0;
+		thisScore = (TextView) findViewById(R.id.textView4);
+		thisDiff = (TextView) findViewById(R.id.textView3);
+		handler = new Handler();
 
 		gameView = (SurfaceView) findViewById(R.id.surfaceView1);
-		
+
 		holder = gameView.getHolder();
 
-		runThread();
+		start = System.currentTimeMillis();
+
+		thread = new Thread(new Runnable() {
+			public void run() {
+				while (gameRun) { //
+					if (!holder.getSurface().isValid()) {
+						continue;
+					}
+					jump = 0;
+					Canvas canvas = holder.lockCanvas();
+					Paint paint = new Paint();
+					paint.setColor(Color.BLUE);
+					paint.setStrokeWidth(5);
+					canvas.drawRect(100, 350 - jump / 2, 160, 410 - jump / 2,
+							paint);
+					paint.setColor(Color.BLACK);
+					canvas.drawRect(100, 380 - jump / 2, 160, 410 - jump / 2,
+							paint);
+					paint.setColor(Color.BLUE);
+					canvas.drawRect(100, 350 - jump, 160, 410 - jump, paint);
+
+					holder.unlockCanvasAndPost(canvas);
+					handler.post(new Runnable() {
+						public void run() {
+							score = (int) (System.currentTimeMillis() - start) / 1000;
+							editor.putString("score", Integer.toString(score));
+							editor.commit();
+							thisScore.setText(pref.getString("score", "0"));
+						}
+					});
+				}
+			}
+		});
+		thread.start();
 	}
 
 	/**
@@ -71,37 +110,10 @@ public class GameActivity extends Activity {
 		// platform.
 		return;
 	}
-	
-	private void runThread() {
-		thread = new Thread(new Runnable() {
-			public void run() {
-				while (gameRun) { // 
-					if (!holder.getSurface().isValid()) {
-						continue;
-					}
-					runOnUiThread(new Runnable() {
-						public void run()  {
-							jump = 0;
-							score++;
-							Canvas canvas = holder.lockCanvas();
-							Paint paint = new Paint();
-							paint.setColor(Color.WHITE);
-							paint.setStrokeWidth(5);
-							canvas.drawRect(40, 420-jump, 80, 460-jump, paint);
-							holder.unlockCanvasAndPost(canvas);
-							// thisScore.setText(pref.getString("score", "0"));
-						}
-					});
-				}
-			}
-		});
-		thread.start();
-	}
-	
-	
+
 	public void gameOver() {
 		highScoreList = new HighScoreList();
-		if(highScoreList.isHighScore(score)){
+		if (highScoreList.isHighScore(score)) {
 			// Ask for name here
 			highScoreList.setHighScore(name, Integer.toString(score));
 		}
@@ -110,6 +122,7 @@ public class GameActivity extends Activity {
 	public void onPause() {
 		// Add the small pop up menu here
 		super.onPause();
+		end = System.currentTimeMillis();
 		gameRun = false;
 	}
 
@@ -117,30 +130,29 @@ public class GameActivity extends Activity {
 		// Add the resume features here if any
 		super.onResume();
 	}
-	
+
 	public void onDestroy() {
 		super.onDestroy();
+		end = System.currentTimeMillis();
 		gameRun = false;
-		
+
 	}
 
 	public void jump(View v) {
 		// Make the jump command here
-		jump+=60;
+		jump += 100;
 	}
 
 	public void menu(View v) {
 		// Make the menu popup here
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-				this);
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
 		// set title
 		alertDialogBuilder.setTitle("Are you sure?");
 
 		// set dialog message
 		alertDialogBuilder
-				.setMessage(
-						"The game will be saved if you exit.")
+				.setMessage("The game will be saved if you exit.")
 				.setCancelable(false)
 				.setPositiveButton("Yes",
 						new DialogInterface.OnClickListener() {
@@ -148,6 +160,7 @@ public class GameActivity extends Activity {
 								// if this button is clicked, close
 								// current activity
 								// Make it save game here
+
 							}
 						})
 				.setNegativeButton("No", new DialogInterface.OnClickListener() {
