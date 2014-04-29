@@ -1,31 +1,48 @@
 package com.example.cs196game;
 
 import android.app.Activity;
-import android.content.Context;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.Menu;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
+import android.widget.TextView;
 
 public class GameActivity extends Activity {
 
-	GameView gameView;
+	SurfaceView gameView;
+	SurfaceHolder holder;
+	Thread thread;
+	HighScoreList highScoreList;
+	Boolean gameRun = true;
+	int jump;
+	int score;
+	String name;
+	SharedPreferences pref;
+	Editor editor;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		gameView = new GameView(this);
-		gameView.setBackgroundColor(Color.WHITE);
 		setContentView(R.layout.activity_game);
-		setContentView(gameView);
-	}
+		pref = getApplicationContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+		editor = pref.edit();
+		TextView thisScore = (TextView) findViewById(R.id.textView4);
+		TextView thisDiff = (TextView) findViewById(R.id.textView3);
+		jump = 0;
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.game, menu);
-		return true;
+		gameView = (SurfaceView) findViewById(R.id.surfaceView1);
+		
+		holder = gameView.getHolder();
+
+		runThread();
 	}
 
 	/**
@@ -54,10 +71,46 @@ public class GameActivity extends Activity {
 		// platform.
 		return;
 	}
+	
+	private void runThread() {
+		thread = new Thread(new Runnable() {
+			public void run() {
+				while (gameRun) { // 
+					if (!holder.getSurface().isValid()) {
+						continue;
+					}
+					runOnUiThread(new Runnable() {
+						public void run()  {
+							jump = 0;
+							score++;
+							Canvas canvas = holder.lockCanvas();
+							Paint paint = new Paint();
+							paint.setColor(Color.WHITE);
+							paint.setStrokeWidth(5);
+							canvas.drawRect(40, 420-jump, 80, 460-jump, paint);
+							holder.unlockCanvasAndPost(canvas);
+							// thisScore.setText(pref.getString("score", "0"));
+						}
+					});
+				}
+			}
+		});
+		thread.start();
+	}
+	
+	
+	public void gameOver() {
+		highScoreList = new HighScoreList();
+		if(highScoreList.isHighScore(score)){
+			// Ask for name here
+			highScoreList.setHighScore(name, Integer.toString(score));
+		}
+	}
 
 	public void onPause() {
 		// Add the small pop up menu here
 		super.onPause();
+		gameRun = false;
 	}
 
 	public void onResume() {
@@ -65,20 +118,51 @@ public class GameActivity extends Activity {
 		super.onResume();
 	}
 	
-	public void jump(View v) {
-		// Make the jump command here
-	}
-	
-	public void menu(View v) {
-		// Make the menu popup here
+	public void onDestroy() {
+		super.onDestroy();
+		gameRun = false;
+		
 	}
 
-	// Not sure if this is the right step
-	private class myView extends View {
-		public myView(Context context) {
-			super(context);
-			// TODO Auto-generated constructor stub
-		}
+	public void jump(View v) {
+		// Make the jump command here
+		jump+=60;
+	}
+
+	public void menu(View v) {
+		// Make the menu popup here
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+				this);
+
+		// set title
+		alertDialogBuilder.setTitle("Are you sure?");
+
+		// set dialog message
+		alertDialogBuilder
+				.setMessage(
+						"The game will be saved if you exit.")
+				.setCancelable(false)
+				.setPositiveButton("Yes",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								// if this button is clicked, close
+								// current activity
+								// Make it save game here
+							}
+						})
+				.setNegativeButton("No", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// if this button is clicked, just close
+						// the dialog box and do nothing
+						dialog.cancel();
+					}
+				});
+
+		// create alert dialog
+		AlertDialog alertDialog = alertDialogBuilder.create();
+
+		// show it
+		alertDialog.show();
 	}
 
 }

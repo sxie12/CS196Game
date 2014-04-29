@@ -32,12 +32,6 @@
         android:positiveButtonText="@null"
         android:title="@string/pref_title_difficulty" />
 
-    <YesNoPreference
-        android:dialogMessage="Are you sure you want to clear the highscores list?"
-        android:key="example_reset_highscores"
-        android:summary="@string/reset_high_scores"
-        android:title="@string/reset_high_score" />
-
 </PreferenceScreen>
 
 <!-- The YesNoPreference has not been made in the Settings.java yet. It also gives an error when I run the code -->
