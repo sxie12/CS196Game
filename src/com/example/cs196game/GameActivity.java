@@ -32,6 +32,8 @@ public class GameActivity extends Activity {
 	TextView thisDiff;
 	long start, end;
 	Handler handler;
+	Canvas canvas;
+	Paint paint;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,18 +59,11 @@ public class GameActivity extends Activity {
 						continue;
 					}
 					jump = 0;
-					Canvas canvas = holder.lockCanvas();
-					Paint paint = new Paint();
+					canvas = holder.lockCanvas();
+					paint = new Paint();
 					paint.setColor(Color.BLUE);
 					paint.setStrokeWidth(5);
-					canvas.drawRect(100, 350 - jump / 2, 160, 410 - jump / 2,
-							paint);
-					paint.setColor(Color.BLACK);
-					canvas.drawRect(100, 380 - jump / 2, 160, 410 - jump / 2,
-							paint);
-					paint.setColor(Color.BLUE);
 					canvas.drawRect(100, 350 - jump, 160, 410 - jump, paint);
-
 					holder.unlockCanvasAndPost(canvas);
 					handler.post(new Runnable() {
 						public void run() {
@@ -160,7 +155,8 @@ public class GameActivity extends Activity {
 								// if this button is clicked, close
 								// current activity
 								// Make it save game here
-
+								onPause();
+								
 							}
 						})
 				.setNegativeButton("No", new DialogInterface.OnClickListener() {
